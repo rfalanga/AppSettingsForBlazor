@@ -1,6 +1,6 @@
 ﻿namespace AppSettingsForBlazor.Services
 {
-    public class AppService
+    public class AppService : IAppService
     {
         private readonly ILogger<AppService> _logger;
         private readonly IHttpClientFactory _clientFactory;
@@ -16,10 +16,8 @@
 
         public async Task<string> GetAppSettingValueAsync(string key)
         {
-            // Simulate an asynchronous operation
-            await Task.Delay(100);
             return _configuration[key] ?? "Key not found";
-        }   
+        }
 
     }
 }
