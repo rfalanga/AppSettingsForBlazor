@@ -1,7 +1,11 @@
 ﻿@page "/"
+@using AppSettingsForBlazor.Services
+@* @inject IAppService AppSettingsService *@
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+<p>Configuration type: @_configurationType</p> 
+
+<p>Some Value: @_SomeValue</p>

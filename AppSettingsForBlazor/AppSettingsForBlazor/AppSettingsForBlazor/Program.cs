@@ -1,5 +1,6 @@
 using AppSettingsForBlazor.Client.Pages;
 using AppSettingsForBlazor.Components;
+using AppSettingsForBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// Register HTTP Client Factory (required by AppService)
+builder.Services.AddHttpClient();
+
+// Register IAppService
+builder.Services.AddScoped<IAppService, AppService>(); // Replace AppService with your actual implementation class
 
 var app = builder.Build();
 
