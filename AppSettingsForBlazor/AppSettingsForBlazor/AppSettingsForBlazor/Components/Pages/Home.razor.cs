@@ -1,11 +1,14 @@
 ﻿using AppSettingsForBlazor.Services;
+using Microsoft.AspNetCore.Components;
 
 namespace AppSettingsForBlazor.Components.Pages
 {
     public partial class Home
     {
         private string _configurationType;
-        private IAppService _appService;
+
+        [Inject]
+        private IAppService _appService { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
