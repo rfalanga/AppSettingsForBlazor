@@ -7,6 +7,7 @@
         private void IncrementCount()
         {
             currentCount++;
+            Console.WriteLine($"Count incremented to: {currentCount}"); // I don't know if this was even necessary
         }
     }
 }
