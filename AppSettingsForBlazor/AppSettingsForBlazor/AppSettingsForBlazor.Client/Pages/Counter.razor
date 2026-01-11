@@ -1,5 +1,5 @@
 ﻿@page "/counter"
-
+@using AppSettingsForBlazor.Client.Services
 @rendermode InteractiveAuto
 
 <PageTitle>Counter</PageTitle>
@@ -10,3 +10,4 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<p>Configuration type: @_configurationType</p> 

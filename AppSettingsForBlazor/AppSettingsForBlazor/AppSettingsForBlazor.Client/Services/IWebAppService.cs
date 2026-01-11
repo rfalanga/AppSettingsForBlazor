@@ -1,5 +1,5 @@
 ﻿
-namespace AppSettingsForBlazor.Services
+namespace AppSettingsForBlazor.Client.Services
 {
     public interface IWebAppService
     {
