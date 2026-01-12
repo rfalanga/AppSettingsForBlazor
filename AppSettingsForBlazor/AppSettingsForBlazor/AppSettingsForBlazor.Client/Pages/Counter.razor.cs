@@ -9,11 +9,11 @@ namespace AppSettingsForBlazor.Client.Pages
         private string _configurationType = string.Empty;
 
         [Inject]
-        private IWebAppService WebAppService { get; set; } = default!;
+        private IAppService AppService { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
-            _configurationType = await WebAppService.GetAppSettingValueAsync("ConfigurationType");
+            _configurationType = await AppService.GetAppSettingValueAsync("ServerSide:ConfigurationType");
         }
 
         private void IncrementCount()
