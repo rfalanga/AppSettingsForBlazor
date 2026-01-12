@@ -9,11 +9,14 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+// Add API controllers
+builder.Services.AddControllers();
+
 // Register HTTP Client Factory (required by AppService)
 builder.Services.AddHttpClient();
 
 // Register IAppService
-builder.Services.AddScoped<IAppService, AppService>(); // Replace AppService with your actual implementation class
+builder.Services.AddScoped<IAppService, AppService>();
 
 var app = builder.Build();
 
@@ -25,7 +28,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
@@ -34,6 +36,10 @@ app.UseHttpsRedirection();
 app.UseAntiforgery();
 
 app.MapStaticAssets();
+
+// Map API controllers
+app.MapControllers();
+
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()

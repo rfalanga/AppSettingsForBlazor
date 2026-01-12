@@ -8,6 +8,6 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 //builder.Services.AddHttpClient();
 
 // Register IWebAppService for the WebAssembly client
-builder.Services.AddScoped<IWebAppService, WebAppService>();
+builder.Services.AddScoped<IAppService, WebAppService>();
 
 await builder.Build().RunAsync();

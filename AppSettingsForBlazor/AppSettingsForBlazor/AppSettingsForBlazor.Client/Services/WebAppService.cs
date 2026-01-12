@@ -2,7 +2,7 @@
 
 namespace AppSettingsForBlazor.Client.Services
 {
-    public class WebAppService : IWebAppService
+    public class WebAppService : IAppService
     {
         private readonly HttpClient _httpClient;
 
